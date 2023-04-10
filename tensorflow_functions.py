@@ -288,3 +288,12 @@ def peebs_calculate_results(y_true, y_pred):
                   "f1": model_f1}
   return model.results
 
+# Preprocess function
+def peebs_preprocess_img (image, label, img_shape = 224):
+  """
+  Converts image datatype from 'uint8' to 'float32' and reshapes image to 
+  [img_shape, img_shape, color_channels]
+  """
+
+  image = tf.image.resize(image, [img_shape, img_shape])
+  return tf.cast(image, tf.float32), label
