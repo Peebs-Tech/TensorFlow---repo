@@ -304,18 +304,18 @@ def peebs_preprocess_img (image, label, img_shape = 224):
   return tf.cast(image, tf.float32), label
 
 
-
+#--------------------------------------------------------------------------------
 # ModelCheckpoint Callbacks
 # Make Checkpoint path first
-peebs_model_checkpoint = tf.keras.callbacks.ModelCheckpoint(checkpoint_path,
-                                                      monitor = "val_accuracy",
-                                                      save_best_only = True,
-                                                      save_weights_only = True,
-                                                      verbose = 0)
-
+#peebs_model_checkpoint = tf.keras.callbacks.ModelCheckpoint(checkpoint_path,
+#                                                      monitor = "val_accuracy",
+#                                                     save_best_only = True,
+#                                                      save_weights_only = True,
+#                                                     verbose = 0))
+#----------------------------------------------------
 # Creating learning rate reduction callback
-peebs_reduce_lr = tf.keras.callbacks.ReduceLROnPlateau(monitor="val_loss",  
-                                                 factor=0.2, # multiply the learning rate by 0.2 (reduce by 5x)
-                                                 patience=2,
-                                                 verbose=1, # print out when learning rate goes down 
-                                                 min_lr=1e-7)
+#peebs_reduce_lr = tf.keras.callbacks.ReduceLROnPlateau(monitor="val_loss",  
+#                                                 factor=0.2, # multiply the learning rate by 0.2 (reduce by 5x)
+#                                                 patience=2,
+#                                                 verbose=1, # print out when learning rate goes down 
+#                                                 min_lr=1e-7)
